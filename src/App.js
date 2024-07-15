@@ -1,24 +1,51 @@
 import logo from './logo.svg';
 import './App.css';
+import { useEffect, useState, useRef } from "react";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    const [input, setInput] = useState("");
+    const [output, setOutput] = useState("");
+    const inputRef = useRef();
+
+    useEffect(() => {
+        inputRef.current.focus()
+    },[])
+    return (
+        <html>
+      <div className="App"
+          onClick={e => { inputRef.current.focus()}}
+            >
+
+                <div className="output"> {output} </div>
+          <input
+              ref={inputRef}
+              type="text"
+              value={input}
+              onChange={e => setInput(e.target.value)}
+              onKeyDown={e => {
+                  if (e.key === "Enter") {
+                      //window.alert("Test");
+                      let newOutput = "";
+                      newOutput = "\n" + "$ " + input + "\n";
+                      switch (input) {
+                          case "ls":
+                              newOutput += "List of projects";
+                              break;
+                          case "pwd":
+                              newOutput += "You're on my terminal site";
+                              break;
+                          default:
+                              newOutput += "Unknown Command";
+                      }
+                      setOutput(newOutput);
+                      setInput("");
+                  }
+              }}
+          />
+          <div className="terminal"></div>
+             
+            </div>
+        </html>
   );
 }
 
