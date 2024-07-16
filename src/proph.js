@@ -54,6 +54,8 @@ function Proph() {
             setshowDealerBust(true);
         } else if (dealerover < over) {
             setshowWin(true);
+        } else if ((dealerover === over) && (dealerover > 0)) {
+            setshowWin(true);
         } else if (over < dealerover) {
             setshowLoss(true);
         }
