@@ -38,6 +38,32 @@
     font-family: VT323;
 }
 
+@keyframes slidein {
+    from {
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes type {
+    0% {
+        width:0ch;
+    }
+    100% {
+        width:80ch;
+    }
+}
+
+#startText div {
+    animation: type 3s steps(80);
+    overflow: hidden;
+    white-space: nowrap;
+}
 
 input {
     position: relative;

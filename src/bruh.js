@@ -13,13 +13,21 @@ function Bruh() {
     const [input, setInput] = useState("");
     const [outputHistory, setOutputHistory] = useState([]);
     const inputRef = useRef();
+    const [startScreen, setstartScreen] = useState(false);
 
     useEffect(() => {
         if (!gamestart) {
             inputRef.current.focus();
         }
+
+        
     }, []);
-    
+
+    useEffect(() => {
+        // Set gamestart to true if outputHistory is empty
+        setstartScreen(outputHistory.length === 0 && !gamestart);
+    }, [outputHistory]);
+
     const maxHistorySize = 10; // Maximum number of lines to keep in history
     const [gamestart, setGamestart] = useState(false);
     const handleCommand = (command) => {
@@ -29,15 +37,17 @@ function Bruh() {
             case "clear":
                 newOutput = [];
                 break;
+            case "hello":
+                newOutput.push("$ " + command + "\nHello World!");
+                break;
             case "help":
-                newOutput.push("$ " + command + "\nAvailable Commands: start game, stop game, ls, pwd, clear");
+                newOutput.push("$ " + command + "\nAvailable Commands: hello, start game, stop game, ls, pwd, clear, github");
                 break;
             case "start game":
                 newOutput = [];
                 setGamestart(true);
                 break;
             case "stop game":
-                newOutput = [];
                 setGamestart(false);
                 break;
             case "ls":
@@ -45,6 +55,10 @@ function Bruh() {
                 break;
             case "pwd":
                 newOutput.push("$ " + command + "\nYou're on my terminal site");
+                break;
+            case "github":
+                newOutput.push("$ " + command + "\nVisit my GitHub profile: ");
+                newOutput.push((<a href='https://github.com/anthonypark0'>https://github.com/anthonypark0</a>));
                 break;
             default:
                 newOutput.push("$ " + command + "\nUnknown Command, try help for a list of commands");
@@ -68,12 +82,13 @@ function Bruh() {
             
 
             <body>
-              
+                
                 <div id="screen" onClick={e => { inputRef.current.focus() }}>
                     <img src="scanlines.png" id="scan" className="noselect" />
                    <img src="bezel.png" id="bezel" className="noselect" /> 
 
                     <div id="content">
+                       
                         < input
                             ref={inputRef}
                             id="mine"
@@ -87,13 +102,19 @@ function Bruh() {
 
                             }}
                         />
+
                         <div id="terminal">
+                            <div id="startText" className="animated-text" >
+                                {startScreen && <div>  Welcome to my Website! My name is Anthony Park. Type "help" for list of commands. </div>}
+                            </div>
                             {gamestart && <Proph />}
+                            <div >
                             {outputHistory.map((line, index) => (
                                 <div key={index}>{line}</div>
-                            ))}
 
-                           
+                            ))}
+                            </div>
+                        
                         </div>
                     </div>
                 </div>

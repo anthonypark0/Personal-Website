@@ -1,19 +1,24 @@
-
-
-#screen{
+.App {
     position:relative;
-    width: 800px;
-    height: 500px;
-    background-color:green;
+    background-color: green;
+    height: 100vh;
+    padding: 1rem;
+    box-sizing: border-box;
+
 }
 
 input {
     border: none;
     outline: none;
+    margin: 50px;
     padding: 0;
     background-color: transparent;
     color: black;
     width: 100%;
+}
+
+.output{
+    color:white;
 }
 
 #scan, #bezel{
