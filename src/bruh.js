@@ -28,7 +28,7 @@ function Bruh() {
         setstartScreen(outputHistory.length === 0 && !gamestart);
     }, [outputHistory]);
 
-    const maxHistorySize = 10; // Maximum number of lines to keep in history
+    const maxHistorySize = 7; // Maximum number of lines to keep in history
     const [gamestart, setGamestart] = useState(false);
     const handleCommand = (command) => {
         let newOutput = [...outputHistory];
@@ -40,19 +40,23 @@ function Bruh() {
             case "hello":
                 newOutput.push("$ " + command + "\nHello World!");
                 break;
+            case "waste time":
+                newOutput.push("$ " + command + "\nUse the commands \"start game\" and \"stop game\" to play an unfinished (but usable) version of \nBlackJack");
+                break;
             case "about":
                 newOutput = [];
-                newOutput.push("$ " + command + "\nHi! I'm Anthony Park. I'm currently a third-year student attending Northeastern University, with plans to graduate in the Spring of 2026." +
-                    "\nI major in Computer Science, with a concentration in software. I am currently seeking an internship for the Summer of 2025. If " +
-                    "you're \nlooking for more information on"
-                    + " my skills, projects, and work experience, type \"resume\" or \"github\". For contact information, type \"contact\".\n For other commands, type \"help\"")
+                newOutput.push((<img src="IMG_4347.JPG" alt="Logo of the website" style={{ width: '300px', height: '200px' }}/>))
+                newOutput.push("Hi! I'm Anthony Park. I'm currently a third-year student attending Northeastern University, with plans to graduate in the Spring of 2026." +
+                    " I major in Computer Science, with a concentration in software. I am currently seeking an internship for the Summer of 2025. If " +
+                    "you're looking for more information on"
+                    + " my skills, projects, and work experience, type \"resume\" or \"github\". For contact information, type \"contact\". For other commands, type \"help\"")
                 break;
             case "help":
-                newOutput.push("$ " + command + "\nAvailable Commands: about, resume, github, contact, hello, clear");
+                newOutput.push("$ " + command + "\nAvailable Commands: about, resume, github, contact, hello, waste time, clear");
                 break;
             case "resume":
                 newOutput.push("$ " + command + "\nDownload Link:");
-                newOutput.push((<a href='https://www.linkedin.com/in/anthony-park0'>https://www.linkedin.com/in/anthony-park0</a>));
+                newOutput.push((<a href="Anthony_Park_Resume.pdf" download>Anthony Park Resume 2024</a>));
                 break;
             case "contact":
                 newOutput.push("$ " + command + "\nEmail: park.ant@northeastern.edu" + "\nLinkedIn: ");

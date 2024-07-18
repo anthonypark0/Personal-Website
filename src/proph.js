@@ -109,7 +109,8 @@ function Proph() {
     return (
         <div>
             <h1>BlackJack</h1> {showWin && <h1> You Win! </h1>} {showBust && <h1> Bust! </h1>} {showLoss && <h1> You Lose! </h1>} {showDealerBust && <h1> Dealer Bust! </h1>}
-            <p>Use The Right Arrow Key To Select</p>
+            <p>Use The Right Arrow Key To Select an Option from the Menu Below. 
+                <br/> Select New Hand After a Win or Loss. Type "Stop Game" to Exit.</p>
             <ul>
                 {choices.map((choice, index) => (
                     <li key={index} className={index === selectedIndex ? 'selected' : ''}>
