@@ -39,7 +39,7 @@ function Proph() {
         setDealerover(total);
         document.getElementById('dealHand').innerHTML = document.getElementById('dealHand').textContent + " " + theirCard1 + " " + theirCard2;
 
-        if (total < 17 || total < over) {
+        if (total < 17 || total < over || total === over) {
             setDealerover(prevDealerover => prevDealerover + theirCard3);
             document.getElementById('dealHand').innerHTML = document.getElementById('dealHand').textContent + " " + theirCard3;
         }
