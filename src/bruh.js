@@ -40,8 +40,23 @@ function Bruh() {
             case "hello":
                 newOutput.push("$ " + command + "\nHello World!");
                 break;
+            case "about":
+                newOutput = [];
+                newOutput.push("$ " + command + "\nHi! I'm Anthony Park. I'm currently a third-year student attending Northeastern University, with plans to graduate in the Spring of 2026." +
+                    "\nI major in Computer Science, with a concentration in software. I am currently seeking an internship for the Summer of 2025. If " +
+                    "you're \nlooking for more information on"
+                    + " my skills, projects, and work experience, type \"resume\" or \"github\". For contact information, type \"contact\".\n For other commands, type \"help\"")
+                break;
             case "help":
-                newOutput.push("$ " + command + "\nAvailable Commands: hello, start game, stop game, ls, pwd, clear, github");
+                newOutput.push("$ " + command + "\nAvailable Commands: about, resume, github, contact, hello, clear");
+                break;
+            case "resume":
+                newOutput.push("$ " + command + "\nDownload Link:");
+                newOutput.push((<a href='https://www.linkedin.com/in/anthony-park0'>https://www.linkedin.com/in/anthony-park0</a>));
+                break;
+            case "contact":
+                newOutput.push("$ " + command + "\nEmail: park.ant@northeastern.edu" + "\nLinkedIn: ");
+                newOutput.push((<a href='https://www.linkedin.com/in/anthony-park0'>https://www.linkedin.com/in/anthony-park0</a>));
                 break;
             case "start game":
                 newOutput = [];
@@ -105,7 +120,7 @@ function Bruh() {
 
                         <div id="terminal">
                             <div id="startText" className="animated-text" >
-                                {startScreen && <div>  Welcome to my Website! My name is Anthony Park. Type "help" for list of commands. </div>}
+                                {startScreen && <div>  Welcome to my Website! My name is Anthony Park. Type "help" for list of commands.</div>}
                             </div>
                             {gamestart && <Proph />}
                             <div >
