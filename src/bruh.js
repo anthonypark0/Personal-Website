@@ -1,13 +1,6 @@
 import './bruh.css';
 import { useEffect, useState, useRef } from "react";
 import Proph from './proph';
-import App from './App';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Navigate,
-} from "react-router-dom";
 
 function Bruh() {
     const [input, setInput] = useState("");
@@ -56,7 +49,7 @@ function Bruh() {
                 break;
             case "resume":
                 newOutput.push("$ " + command + "\nDownload Link:");
-                newOutput.push((<a href="Anthony_Park_Resume.pdf" download>Anthony Park Resume 2024</a>));
+                newOutput.push((<a href="Anthony_Park_Resume.pdf" download>Anthony Park Resume 2026</a>));
                 break;
             case "contact":
                 newOutput.push("$ " + command + "\nEmail: park.ant@northeastern.edu" + "\nLinkedIn: ");
