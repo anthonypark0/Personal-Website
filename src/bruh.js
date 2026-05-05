@@ -46,8 +46,8 @@ function Bruh() {
             case "about":
                 newOutput = [];
                 newOutput.push((<img src="IMG_4347.JPG" alt="Logo of the website" style={{ width: '300px', height: '200px' }}/>))
-                newOutput.push("Hi! I'm Anthony Park. I'm currently a third-year student attending Northeastern University, with plans to graduate in the Spring of 2026." +
-                    " I major in Computer Science, with a concentration in software. I am currently seeking an internship for the Summer of 2025. If " +
+                newOutput.push("Hi! I'm Anthony Park. I'm a recent graduate of Northeastern University (Class of 2026)." +
+                    " I majored in Computer Science, with a concentration in software. I am currently seeking a full-time position. If " +
                     "you're looking for more information on"
                     + " my skills, projects, and work experience, type \"resume\" or \"github\". For contact information, type \"contact\". For other commands, type \"help\"")
                 break;
